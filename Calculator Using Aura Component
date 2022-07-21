@@ -53,3 +53,10 @@ CONTROLLER FILE:-
     
 })
 =======================================================================================================================
+STYLE SHEET:-
+
+.THIS {
+    background-image : url(https://mkr1en1mksitesap.blob.core.windows.net/blog/2021/03/Salesforce-integration.jpg) ;
+    background-size: cover;
+}
+=======================================================================================================================
