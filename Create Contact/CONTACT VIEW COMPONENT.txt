@@ -1,0 +1,48 @@
+CONTACT VIEW 
+COMPONENT
+==================
+
+<aura:component implements="flexipage:availableForRecordHome,flexipage:availableForAllPageTypes" access="global" >
+    <h1>Contact View Component</h1>
+ 	<aura:attribute name="contactList" type="Object" /> 
+    
+    <aura:handler name="CreateContacts" event="c:CreateContactEvent" action="{!c.doHandleEvent}" />
+
+    <c:CreateContactComponent  />
+    
+   <h1> REVIEW COMPONENT</h1>
+   <c:ReviewComponent  contactList = "{!v.contactList}"/>
+    
+   
+    
+
+
+    
+</aura:component>
+
+CONTROLLER
+============
+
+({
+    doHandleEvent : function(component, event, helper) 
+    {
+        
+      var conRecord = event.getParam('ContactEvent');
+        console.log('conRecord ', conRecord);
+        var contactList = component.get('v.contactList');
+
+        if(contactList){
+            contactList.push(conRecord);
+            component.set('v.contactList', contactList);
+           
+           
+       
+        }else{
+            contactList = [];
+            contactList.push(conRecord);
+            component.set('v.contactList', contactList);
+           
+          
+        }
+    }
+})
